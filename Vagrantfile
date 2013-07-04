@@ -31,12 +31,4 @@ Vagrant.configure("2") do |config|
     c.vm.hostname = "tefenua.srv.gov.pf"
   end
 
-  # Configuration de la machine virtuelle REPOSITORY
-  config.vm.define :repository do |c|
-    c.vm.box = "debian7_amd64-2"
-    c.vm.network :private_network, ip: "10.7.0.254"
-    c.vm.network :forwarded_port, guest: 80, host: 48080
-    c.vm.hostname = "repository.gov.pf"
-  end
-
 end
