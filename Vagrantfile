@@ -24,11 +24,18 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  # Configuration de la machine virtuelle TEFENUA
-  config.vm.define :tefenua do |c|
+  # Configuration de la machine virtuelle debnode
+  config.vm.define :debnode do |c|
     c.vm.box = "debian7_amd64-2"
     c.vm.network :private_network, ip: "10.7.0.100"
-    c.vm.hostname = "tefenua.srv.gov.pf"
+    c.vm.hostname = "debnode.srv.gov.pf"
+  end
+
+  # Configuration de la machine virtuelle centnode
+  config.vm.define :centnode do |c|
+    c.vm.box = "centos6_amd64-1"
+    c.vm.network :private_network, ip: "10.7.0.101"
+    c.vm.hostname = "debnode.srv.gov.pf"
   end
 
 end
