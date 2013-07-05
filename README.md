@@ -16,10 +16,8 @@ Il faut ensuite créer un répertoire et récupérer les sources :
 On récupére les boxes et on les intégre à Vagrant :
 ```
   $ cd infra/boxes
-  $ wget https://github.com/sitle/debian7_amd64-2.box
-  $ wget https://github.com/sitle/centos6_amd64-1.box
-  $ vagrant box add debian7_amd64-2 debian7_amd64-2.box
-  $ vagrant box add centos6_amd64-1 centos6_amd64-1.box
+  $ wget -c https://www.dropbox.com/s/0hze6qfdi0g6p23/debian7_amd64-3.box
+  $ vagrant box add debian7_amd64-3 debian7_amd64-3.box
 ```
 
 Nous pouvons dès lors construire notre environnement de développement :
@@ -41,5 +39,4 @@ Sur le puppetmaster, il faut signer la demande de certification du proxy :
  $ sudo puppet cert sign proxy.srv.gov.pf
  $ exit
 ```
-
 
