@@ -44,4 +44,11 @@ Vagrant.configure("2") do |config|
     c.vm.hostname = "debnode.srv.gov.pf"
   end
 
+  # Configuration de la machine virtuelle debbox
+  config.vm.define :debbox do |c|
+    c.vm.box = "debian7_amd64-2"
+    c.vm.provider "virtualbox" do |v|
+      v.name = "debbox"
+    end
+  end
 end
