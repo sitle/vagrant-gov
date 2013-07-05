@@ -10,7 +10,7 @@ Il faut ensuite créer un répertoire et récupérer les sources :
 ```
   $ mkdir -p infra/boxes
   $ cd infra
-  $ git clone https://github.com/sitle/vagrant.git .
+  $ git clone https://github.com/sitle/vagrant-gov.git .
 ```
 
 On récupére les boxes et on les intégre à Vagrant :
