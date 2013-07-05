@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   # Configuration de la machine virtuelle proxy
   config.vm.define :proxy do |c|
-    c.vm.box = "debian7_amd64-2"
+    c.vm.box = "debian7_amd64-3"
     c.vm.network :private_network, ip: "10.7.0.102"
     c.vm.hostname = "proxy.srv.gov.pf"
     c.vm.provision :shell do |shell|
@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
 
   # Configuration de la machine virtuelle puppetmaster
   config.vm.define :puppetmaster do |c|
-    c.vm.box = "debian7_amd64-2"
+    c.vm.box = "debian7_amd64-3"
     c.vm.network :private_network, ip: "10.7.0.11"
     c.vm.hostname = "puppetmaster.srv.gov.pf"
     c.vm.synced_folder "manifests/", "/etc/puppet/manifests"
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 
   # Configuration de la machine virtuelle debnode
   config.vm.define :debnode do |c|
-    c.vm.box = "debian7_amd64-2"
+    c.vm.box = "debian7_amd64-3"
     c.vm.network :private_network, ip: "10.7.0.100"
     c.vm.hostname = "debnode.srv.gov.pf"
   end
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
 
   # Configuration de la machine virtuelle debbox
   config.vm.define :debbox do |c|
-    c.vm.box = "debian7_amd64-2"
+    c.vm.box = "debian7_amd64-3"
     c.vm.provider "virtualbox" do |v|
       v.name = "debbox"
     end
