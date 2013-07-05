@@ -32,7 +32,7 @@ PORT=8140
 EOF
 
     # Installation du paquet puppetmaster-passenger
-    aptitude -q -y install puppetmaster-passenger &> /dev/null
+    aptitude -q -y install puppetmaster-passenger ca-certificates &> /dev/null
   fi
 fi
 
