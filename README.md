@@ -1,7 +1,7 @@
 Ce projet permet de constituer une envrionnement de développement pour module puppet. Il est nécessaire de récupérer les logiciels suivant :
 
 * vagrant 1.2.2 (http://downloads.vagrantup.com/)
-* virtualbox 4.2.12 (http://www.virtualbox.org)
+* virtualbox 4.2.16 (http://www.virtualbox.org)
 
 En fonction de votre distribution, ces logiciels seront plus ou moins simple à installer.
 
