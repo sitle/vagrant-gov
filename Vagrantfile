@@ -30,6 +30,22 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  # Configuration de la machine virtuelle debbox
+  config.vm.define :debbox do |c|
+    c.vm.box = "debian7_amd64-3"
+    c.vm.provider "virtualbox" do |v|
+      v.name = "debbox"
+    end
+  end
+
+  # Configuration de la machine virtuelle centbox
+  config.vm.define :centbox do |c|
+    c.vm.box = "centos6_amd64-1"
+    c.vm.provider "virtualbox" do |v|
+      v.name = "centbox"
+    end
+  end
+
   # Configuration de la machine virtuelle debnode
   config.vm.define :debnode do |c|
     c.vm.box = "debian7_amd64-3"
@@ -41,14 +57,8 @@ Vagrant.configure("2") do |config|
   config.vm.define :centnode do |c|
     c.vm.box = "centos6_amd64-1"
     c.vm.network :private_network, ip: "10.7.0.101"
-    c.vm.hostname = "debnode.srv.gov.pf"
+    c.vm.hostname = "centnode.srv.gov.pf"
   end
 
-  # Configuration de la machine virtuelle debbox
-  config.vm.define :debbox do |c|
-    c.vm.box = "debian7_amd64-3"
-    c.vm.provider "virtualbox" do |v|
-      v.name = "debbox"
-    end
-  end
+
 end
