@@ -10,6 +10,9 @@ Vagrant.configure("2") do |config|
     c.vm.provision :shell do |shell|
       shell.path = "bootstrap/proxy-bootstrap.sh"
     end
+    c.vm.provider "virtualbox" do |v|
+      v.name = "proxy"
+    end
   end
 
   # Configuration de la machine virtuelle puppetmaster
@@ -21,6 +24,9 @@ Vagrant.configure("2") do |config|
     c.vm.synced_folder "modules/", "/etc/puppet/modules"
     c.vm.provision :shell do |shell|
       shell.path = "bootstrap/puppetmaster-bootstrap.sh"
+    end
+    c.vm.provider "virtualbox" do |v|
+      v.name = "puppermaster"
     end
   end
 
