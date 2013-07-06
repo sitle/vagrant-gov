@@ -51,6 +51,12 @@ Vagrant.configure("2") do |config|
     c.vm.box = "debian7_amd64-3"
     c.vm.network :private_network, ip: "10.7.0.100"
     c.vm.hostname = "debnode.srv.gov.pf"
+    c.vm.provision :shell do |shell|
+      shell.path = "bootstrap/default-bootstrap.sh"
+    end
+    c.vm.provider "virtualbox" do |v|
+      v.name = "debnode"
+    end
   end
 
   # Configuration de la machine virtuelle centnode
