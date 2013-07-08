@@ -4,8 +4,9 @@ Ce projet permet de constituer une envrionnement de développement pour module p
 * vagrant 1.2.2 (http://downloads.vagrantup.com/)
 * virtualbox 4.2.16 (http://www.virtualbox.org)
 
-En fonction de votre distribution, ces logiciels seront plus ou moins simple à installer.
-Il faut savoir que ces logiciels fonctionnent aussi sous Microsoft/Windows.
+En fonction de votre distribution, ces logiciels seront plus ou moins simple à installer. Veuillez utiliser les version fournies par oracle pour l'installation de virtualbox.
+
+Remarque : ces logiciels fonctionnent aussi sous Microsoft/Windows.
 
 # Préparation de l'environnement
 Il faut créer un répertoire et récupérer le projet :
