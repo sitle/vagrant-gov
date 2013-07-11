@@ -18,7 +18,7 @@ Il faut créer un répertoire et récupérer le projet :
 
 On récupére la box et on l'intégre à Vagrant :
 ```
-  $ cd infra/boxes
+  $ cd infra/{boxes,modules,manifests}
   $ wget -c https://www.dropbox.com/s/0hze6qfdi0g6p23/debian7_amd64-3.box
   $ vagrant box add debian7_amd64-3 debian7_amd64-3.box
 ```
@@ -47,7 +47,7 @@ Votre environnement est prêt à être utilisé.
 
 # Remarques
 
-* Les systèmes des boxes seront par défaut dans leurs dernières versions disponibles (Debian 7 et Centos 6).
+* Les systèmes des boxes seront par défaut dans leurs dernières versions disponibles à savoir Debian 7.1 et Centos 6.4 à l'heure actuelle.
 * Pour l'instant, seul la box debian est fournie. A terme, la box centos sera disponible. Celui-ci permettra d'écrire des modules pour tout les environnements basés sur RedHat.
 * Les boxes sont conçu à partir de modèle fournie dans ce projet (dans les répertoires preseed et kickstart).
 
