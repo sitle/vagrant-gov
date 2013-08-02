@@ -66,6 +66,4 @@ Vagrant.configure("2") do |config|
     c.vm.network :private_network, ip: "10.7.0.101"
     c.vm.hostname = "centnode.srv.gov.pf"
   end
-
-
 end
