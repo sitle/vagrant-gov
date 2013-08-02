@@ -1,51 +1,56 @@
+# Vagrant-gov
+
 Ce projet permet de constituer une envrionnement de développement pour module puppet. Il est nécessaire de récupérer les logiciels suivant :
 
-* git (http://git-scm.com/downloads)
-* vagrant 1.2.2 (http://downloads.vagrantup.com/)
-* virtualbox 4.2.16 (http://www.virtualbox.org)
+* [git](http://git-scm.com/downloads)
+* [vagrant](http://downloads.vagrantup.com/)
+* [virtualbox](http://www.virtualbox.org)
 
 En fonction de votre distribution, ces logiciels seront plus ou moins simple à installer. Veuillez utiliser les version fournies par oracle pour l'installation de virtualbox.
 
 Remarque : ces logiciels fonctionnent aussi sous Microsoft/Windows.
 
-# Préparation de l'environnement
+## Préparation de l'environnement
+
 Il faut créer un répertoire et récupérer le projet :
+```bash
+mkdir -p infra/boxes
+cd infra
+git clone https://github.com/sitle/vagrant-gov.git .
 ```
-  $ mkdir -p infra/boxes
-  $ cd infra
-  $ git clone https://github.com/sitle/vagrant-gov.git .
+On récupére la box et on l'intégre à Vagrant :
+```bash
+cd infra/{boxes,modules,manifests}
+wget -c https://www.dropbox.com/s/0hze6qfdi0g6p23/debian7_amd64-3.box
+vagrant box add debian7_amd64-3 debian7_amd64-3.box
 ```
 
-On récupére la box et on l'intégre à Vagrant :
-```
-  $ cd infra/{boxes,modules,manifests}
-  $ wget -c https://www.dropbox.com/s/0hze6qfdi0g6p23/debian7_amd64-3.box
-  $ vagrant box add debian7_amd64-3 debian7_amd64-3.box
-```
+## Construction de l'environnement
 
 Nous pouvons dès lors construire notre environnement de développement :
+```bash
+vagrant up proxy
+vagrant up puppetmaster
 ```
-  $ vagrant up proxy
-  $ vagrant up puppetmaster
-```
-
 On génère les certificats du serveur proxy :
+```bash
+vagrant ssh proxy
+sudo puppet agent -t test
+exit
 ```
-  $ vagrant ssh proxy
-  $ sudo puppet agent -t test
-  $ exit
-```
-
 Sur le puppetmaster, il faut signer la demande de certification du proxy :
+```bash
+vagrant ssh puppetmaster
+sudo puppet cert sign proxy.srv.gov.pf
+exit
 ```
- $ vagrant ssh puppetmaster
- $ sudo puppet cert sign proxy.srv.gov.pf
- $ exit
-```
+Votre environnement est fin prêt à être utilisé.
 
-Votre environnement est prêt à être utilisé.
+## Utilisation
 
-# Remarques
+Veuillez jeter un coup d'oeil au fichier ```infra/Vagrantfile```. Celui-ci contient la définition de l'environnement de dévelloppement. N'hésitez pas à le modifier pour rajouter de nouvelles machines.
+
+## Remarques
 
 * Les systèmes des boxes seront par défaut dans leurs dernières versions disponibles à savoir Debian 7.1 et Centos 6.4 à l'heure actuelle.
 * Pour l'instant, seul la box debian est fournie. A terme, la box centos sera disponible. Celui-ci permettra d'écrire des modules pour tout les environnements basés sur RedHat.
