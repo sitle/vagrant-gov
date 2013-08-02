@@ -53,9 +53,17 @@ Pour avoir le status des machines virtuelles, il faut taper la commande suivante
 ```bash
 vagrant status
 ```
-Pour lancer une machine :
+Pour lancer une machine virtuelle :
 ```bash
 vagrant up NOM_DE_VOTRE_MACHINE
+```
+Pour arrêter une machine virtuelle :
+```bash
+vagrant halt NOM_DE_VOTRE_MACHINE
+```
+Pour détruire votre machine virtuelle :
+```bash
+vagrant destroy NOM_DE_VOTRE_MACHINE
 ```
 
 ## Remarques
