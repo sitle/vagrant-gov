@@ -11,6 +11,21 @@ if [ ! -f /home/vagrant/puppetlabs-release-wheezy.deb ]; then
   if [ "$DISTRIBUTION" = "wheezy" ]; then
     # Installation du paquet puppetmaster
     aptitude -q -y install puppetmaster &> /dev/null
+    # Création du répertoire hieradata
+    mkdir /etc/puppet/hieradata
+    # Création du fichier hiera.yaml
+    cat > /etc/puppet/hiera.yaml <<EOF
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: /etc/puppet/hieradata
+:hierarchy:
+  - "%{calling_module}/%{fqdn}"
+  - "%{calling_module}/common"
+EOF
+
+    # On arrête le service puppetmaster
     invoke-rc.d puppetmaster stop
     
     # Modification du fichier /etc/default/puppetmaster pour désactiver son démarage
@@ -22,7 +37,7 @@ if [ ! -f /home/vagrant/puppetlabs-release-wheezy.deb ]; then
 # Setting this to "no" keeps the puppet master service from running.
 #
 # If you are using Passenger, you should have this set to "no."
-START=yes
+START=no
 
 # Startup options
 DAEMON_OPTS=""
@@ -33,6 +48,7 @@ EOF
 
     # Installation du paquet puppetmaster-passenger
     aptitude -q -y install puppetmaster-passenger ca-certificates &> /dev/null
+
   fi
 fi
 
