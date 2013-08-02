@@ -14,13 +14,13 @@ Remarque : ces logiciels fonctionnent aussi sous Microsoft/Windows.
 
 Il faut créer un répertoire et récupérer le projet :
 ```bash
-mkdir -p infra/boxes
+mkdir -p infra/{boxes,modules,manifests,hieradata}
 cd infra
 git clone https://github.com/sitle/vagrant-gov.git .
 ```
 On récupére la box et on l'intégre à Vagrant :
 ```bash
-cd infra/{boxes,modules,manifests}
+cd infra/boxes
 wget -c https://www.dropbox.com/s/0hze6qfdi0g6p23/debian7_amd64-3.box
 vagrant box add debian7_amd64-3 debian7_amd64-3.box
 ```
