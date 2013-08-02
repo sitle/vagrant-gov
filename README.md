@@ -49,6 +49,14 @@ Votre environnement est fin prêt à être utilisé.
 ## Utilisation
 
 Veuillez jeter un coup d'oeil au fichier ```infra/Vagrantfile```. Celui-ci contient la définition de l'environnement de dévelloppement. N'hésitez pas à le modifier pour rajouter de nouvelles machines.
+Pour avoir le status des machines virtuelles, il faut taper la commande suivante :
+```bash
+vagrant status
+```
+Pour lancer une machine :
+```bash
+vagrant up NOM_DE_VOTRE_MACHINE
+```
 
 ## Remarques
 
