@@ -4,7 +4,7 @@ Ce projet permet de constituer une envrionnement de développement pour module p
 
 * [git](http://git-scm.com/downloads)
 * [vagrant](http://downloads.vagrantup.com/)
-* [virtualbox](http://www.virtualbox.org)
+* [virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
 En fonction de votre distribution, ces logiciels seront plus ou moins simple à installer. Veuillez utiliser les version fournies par oracle pour l'installation de virtualbox.
 
