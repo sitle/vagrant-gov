@@ -46,7 +46,7 @@ exit
 ```
 Votre environnement est fin prêt à être utilisé.
 
-## Utilisation
+## Utilisation de l'environnement
 
 Veuillez jeter un coup d'oeil au fichier ```infra/Vagrantfile```. Celui-ci contient la définition de l'environnement de dévelloppement. N'hésitez pas à le modifier pour rajouter de nouvelles machines.
 Pour avoir le status des machines virtuelles, il faut taper la commande suivante :
